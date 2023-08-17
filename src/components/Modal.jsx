@@ -7,7 +7,8 @@ const Modal = ({
   animateModal, 
   setAnimateModal, 
   saveSpend, 
-  editSpend 
+  editSpend,
+  setEditSpend
 }) => {
 
   const [message, setMessage] = useState('');
@@ -15,6 +16,7 @@ const Modal = ({
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
+  const [date, setDate] = useState('');
   const [id, setId] = useState('');
 
   useEffect(() => {
@@ -22,12 +24,13 @@ const Modal = ({
     setAmount(editSpend.amount)
     setCategory(editSpend.category)
     setId(editSpend.id)
+    setDate(editSpend.date)
   }, [])
   
 
   const hideModal = () => {
     setAnimateModal(false);
-
+    setEditSpend({})
     setTimeout(() => {
       setModal(false);
     }, 300);
@@ -43,7 +46,7 @@ const Modal = ({
       }, 5000);
       return
     }
-    saveSpend({name, amount, category});
+    saveSpend({name, amount, category, id, date});
   }
 
   return (

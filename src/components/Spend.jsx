@@ -29,7 +29,7 @@ const iconIndex = {
 }
 
 
-const Spend = ({ spend, setEditSpend }) => {
+const Spend = ({ spend, setEditSpend, deleteSpend }) => {
     const { id, name, amount, category, date } = spend;
 
     const leadingActions = () => (
@@ -42,7 +42,10 @@ const Spend = ({ spend, setEditSpend }) => {
 
     const trailingActions = () => (
         <TrailingActions>
-            <SwipeAction onClick={() => console.log('delete')}>
+            <SwipeAction 
+            onClick={() => deleteSpend(id)}
+            destructive={true}
+            >
                 Delete
             </SwipeAction>
         </TrailingActions>

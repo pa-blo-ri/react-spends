@@ -8,7 +8,8 @@ const Header = ({
     setPresupuesto,
     isValidPresupuesto,
     setIsValidPresupuesto,
-    spends
+    spends,
+    setSpends
 }) => {
     return (
         <header>
@@ -17,7 +18,10 @@ const Header = ({
             {isValidPresupuesto ? (
                 <ManageBudget
                     presupuesto={presupuesto}
+                    setPresupuesto={setPresupuesto}
                     spends={spends}
+                    setSpends={setSpends}
+                    setIsValidPresupuesto={setIsValidPresupuesto}
                 />
                 
             ) : (
