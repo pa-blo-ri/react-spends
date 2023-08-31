@@ -38,6 +38,7 @@ const ManageBudget = ({ presupuesto, spends, setSpends, setPresupuesto, setIsVal
             setSpends([])
             setPresupuesto(0)
             setIsValidPresupuesto(false)
+            localStorage.setItem('presupuesto', 0)
         }
     }
 

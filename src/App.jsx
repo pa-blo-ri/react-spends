@@ -33,9 +33,7 @@ function App() {
 
   }, [editSpend])
 
-  useEffect(() => {
-    Number(localStorage.setItem('presupuesto', presupuesto ?? 0))
-  }, [presupuesto])
+
 
   useEffect(() => {
     localStorage.setItem('spends', JSON.stringify(spends) ?? [])

@@ -12,7 +12,8 @@ const NewBudget = ({ presupuesto, setPresupuesto, setIsValidPresupuesto }) => {
        if ( !presupuesto || presupuesto < 0){
         setMensaje('Invalid budget, try again!');
         return
-       } 
+       }
+       localStorage.setItem('presupuesto', presupuesto) 
        setMensaje('')
        setIsValidPresupuesto(true)
 
@@ -26,8 +27,7 @@ const NewBudget = ({ presupuesto, setPresupuesto, setIsValidPresupuesto }) => {
                     <input
                         type="number"
                         className='nuevo-presupuesto' 
-                        placeholder='Define your initial budget'
-                        value={presupuesto}
+                        placeholder= { presupuesto ? presupuesto :'Define your initial budget' }
                         onChange={ e => setPresupuesto(Number(e.target.value))}/>
                     <input type="submit" value="Add"/>
                     {mensaje && <Message type='error'> {mensaje} </Message>}
